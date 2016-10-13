@@ -19,6 +19,8 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI() throws InterruptedException {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
 
     }
 
@@ -26,10 +28,14 @@ public class GUI extends javax.swing.JFrame {
         runningLabel.setIcon(null);
             try{
                 BufferedImage img = ImageIO.read(new File(minnesStr));
+                bgLabel.revalidate();
+                bgLabel.repaint();
+                bgLabel.update(bgLabel.getGraphics());
                 runningLabel.setIcon(new ImageIcon(img));
                 runningLabel.revalidate();
                 runningLabel.repaint();
                 runningLabel.update(runningLabel.getGraphics());
+
             }catch (IOException ex){
                 
             }
@@ -42,62 +48,116 @@ public class GUI extends javax.swing.JFrame {
 
         runingPanel = new javax.swing.JPanel();
         runningLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        walkBtn = new javax.swing.JButton();
+        runBtn = new javax.swing.JButton();
+        omfgBtn = new javax.swing.JButton();
+        sprintBtn1 = new javax.swing.JButton();
+        bgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         runingPanel.setPreferredSize(new java.awt.Dimension(1100, 1100));
+        runingPanel.setLayout(null);
 
         runningLabel.setBackground(new java.awt.Color(51, 51, 51));
         runningLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        runningLabel.setOpaque(true);
+        runningLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        runningLabel.setMaximumSize(new java.awt.Dimension(1076, 1000));
+        runningLabel.setMinimumSize(new java.awt.Dimension(1076, 1000));
+        runingPanel.add(runningLabel);
+        runningLabel.setBounds(50, -60, 960, 780);
 
-        jButton1.setText("RUN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        walkBtn.setText("Walk");
+        walkBtn.setPreferredSize(new java.awt.Dimension(60, 35));
+        walkBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                walkBtnActionPerformed(evt);
             }
         });
+        runingPanel.add(walkBtn);
+        walkBtn.setBounds(10, 810, 121, 35);
 
-        javax.swing.GroupLayout runingPanelLayout = new javax.swing.GroupLayout(runingPanel);
-        runingPanel.setLayout(runingPanelLayout);
-        runingPanelLayout.setHorizontalGroup(
-            runingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(runningLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(runingPanelLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(765, Short.MAX_VALUE))
-        );
-        runingPanelLayout.setVerticalGroup(
-            runingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, runingPanelLayout.createSequentialGroup()
-                .addComponent(runningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        runBtn.setText("Run");
+        runBtn.setPreferredSize(new java.awt.Dimension(60, 35));
+        runBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runBtnActionPerformed(evt);
+            }
+        });
+        runingPanel.add(runBtn);
+        runBtn.setBounds(140, 800, 121, 43);
+
+        omfgBtn.setText("OMFG");
+        omfgBtn.setPreferredSize(new java.awt.Dimension(60, 35));
+        omfgBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omfgBtnActionPerformed(evt);
+            }
+        });
+        runingPanel.add(omfgBtn);
+        omfgBtn.setBounds(420, 810, 121, 35);
+
+        sprintBtn1.setText("Sprint");
+        sprintBtn1.setPreferredSize(new java.awt.Dimension(60, 35));
+        sprintBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sprintBtn1ActionPerformed(evt);
+            }
+        });
+        runingPanel.add(sprintBtn1);
+        sprintBtn1.setBounds(280, 810, 121, 35);
+
+        bgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/runningcaveman/NevJ68B.jpg"))); // NOI18N
+        bgLabel.setText("jLabel1");
+        bgLabel.setOpaque(true);
+        runingPanel.add(bgLabel);
+        bgLabel.setBounds(0, 0, 1080, 790);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(runingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(runingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(runingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+            .addComponent(runingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void walkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walkBtnActionPerformed
         try {
-            cave.setImageTre();
+            cave.setImageTre(100);
         } catch (InterruptedException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_walkBtnActionPerformed
+
+    private void runBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runBtnActionPerformed
+       try {
+            cave.setImageTre(50);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_runBtnActionPerformed
+
+    private void omfgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omfgBtnActionPerformed
+             try {
+            cave.setImageTre(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_omfgBtnActionPerformed
+
+    private void sprintBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sprintBtn1ActionPerformed
+                    try {
+            cave.setImageTre(3);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_sprintBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +199,12 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel bgLabel;
+    private javax.swing.JButton omfgBtn;
+    private javax.swing.JButton runBtn;
     private javax.swing.JPanel runingPanel;
     private javax.swing.JLabel runningLabel;
+    private javax.swing.JButton sprintBtn1;
+    private javax.swing.JButton walkBtn;
     // End of variables declaration//GEN-END:variables
 }
