@@ -5,11 +5,7 @@
  */
 package runningcaveman;
 
-import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.Timer;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -18,24 +14,24 @@ import javax.swing.Timer;
 public class RunningCaveMan {
 
     GUI gui;
-    
-    public RunningCaveMan(GUI x){
+
+    public RunningCaveMan(GUI x) {
         gui = x;
     }
-    
-    public void setImageTre() throws InterruptedException {
-       
-        for (int i = 0; i < 12; i++) {
-            
-         String ny = "./bild/" + (i+1) + ".png";
-         gui.setMinIcon(ny);
-         
-         try{
-             Thread.sleep(100);
-         }catch (InterruptedException ex) {
-                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         
+
+    public void setImageTre(int speed) throws InterruptedException {
+        int movement = speed;
+
+        for (int j = 0; j < 10; j++) {
+
+            for (int i = 0; i < 12; i++) {
+                String ny = "./bild/" + (i + 1) + ".png";
+                gui.setMinIcon(ny);
+
+                TimeUnit.MILLISECONDS.sleep(movement);
+
+            }
+        }
     }
-}
+
 }
