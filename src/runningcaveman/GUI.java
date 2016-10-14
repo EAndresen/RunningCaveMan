@@ -28,9 +28,9 @@ public class GUI extends javax.swing.JFrame {
         runningLabel.setIcon(null);
             try{
                 BufferedImage img = ImageIO.read(new File(minnesStr));
-                bgLabel.revalidate();
-                bgLabel.repaint();
-                bgLabel.update(bgLabel.getGraphics());
+//                bgLabel.revalidate();
+//                bgLabel.repaint();
+//                bgLabel.update(bgLabel.getGraphics());
                 runningLabel.setIcon(new ImageIcon(img));
                 runningLabel.revalidate();
                 runningLabel.repaint();
@@ -50,9 +50,7 @@ public class GUI extends javax.swing.JFrame {
         runningLabel = new javax.swing.JLabel();
         walkBtn = new javax.swing.JButton();
         runBtn = new javax.swing.JButton();
-        omfgBtn = new javax.swing.JButton();
         sprintBtn1 = new javax.swing.JButton();
-        bgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,8 +62,9 @@ public class GUI extends javax.swing.JFrame {
         runningLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         runningLabel.setMaximumSize(new java.awt.Dimension(1076, 1000));
         runningLabel.setMinimumSize(new java.awt.Dimension(1076, 1000));
+        runningLabel.setOpaque(true);
         runingPanel.add(runningLabel);
-        runningLabel.setBounds(50, -60, 960, 780);
+        runningLabel.setBounds(10, -60, 1060, 850);
 
         walkBtn.setText("Walk");
         walkBtn.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -75,7 +74,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         runingPanel.add(walkBtn);
-        walkBtn.setBounds(10, 810, 121, 35);
+        walkBtn.setBounds(10, 790, 121, 60);
 
         runBtn.setText("Run");
         runBtn.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -85,17 +84,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         runingPanel.add(runBtn);
-        runBtn.setBounds(140, 800, 121, 43);
-
-        omfgBtn.setText("OMFG");
-        omfgBtn.setPreferredSize(new java.awt.Dimension(60, 35));
-        omfgBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                omfgBtnActionPerformed(evt);
-            }
-        });
-        runingPanel.add(omfgBtn);
-        omfgBtn.setBounds(420, 810, 121, 35);
+        runBtn.setBounds(150, 790, 121, 60);
 
         sprintBtn1.setText("Sprint");
         sprintBtn1.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -105,13 +94,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         runingPanel.add(sprintBtn1);
-        sprintBtn1.setBounds(280, 810, 121, 35);
-
-        bgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/runningcaveman/NevJ68B.jpg"))); // NOI18N
-        bgLabel.setText("jLabel1");
-        bgLabel.setOpaque(true);
-        runingPanel.add(bgLabel);
-        bgLabel.setBounds(0, 0, 1080, 790);
+        sprintBtn1.setBounds(290, 790, 121, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,14 +125,6 @@ public class GUI extends javax.swing.JFrame {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_runBtnActionPerformed
-
-    private void omfgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omfgBtnActionPerformed
-             try {
-            cave.setImageTre(10);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_omfgBtnActionPerformed
 
     private void sprintBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sprintBtn1ActionPerformed
                     try {
@@ -199,8 +174,6 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bgLabel;
-    private javax.swing.JButton omfgBtn;
     private javax.swing.JButton runBtn;
     private javax.swing.JPanel runingPanel;
     private javax.swing.JLabel runningLabel;
