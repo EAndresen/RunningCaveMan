@@ -47,24 +47,14 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         runingPanel = new javax.swing.JPanel();
-        runningLabel = new javax.swing.JLabel();
         walkBtn = new javax.swing.JButton();
         runBtn = new javax.swing.JButton();
         sprintBtn1 = new javax.swing.JButton();
+        runningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         runingPanel.setPreferredSize(new java.awt.Dimension(1100, 1100));
-        runingPanel.setLayout(null);
-
-        runningLabel.setBackground(new java.awt.Color(51, 51, 51));
-        runningLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        runningLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        runningLabel.setMaximumSize(new java.awt.Dimension(1076, 1000));
-        runningLabel.setMinimumSize(new java.awt.Dimension(1076, 1000));
-        runningLabel.setOpaque(true);
-        runingPanel.add(runningLabel);
-        runningLabel.setBounds(10, -60, 1060, 850);
 
         walkBtn.setText("Walk");
         walkBtn.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -73,8 +63,6 @@ public class GUI extends javax.swing.JFrame {
                 walkBtnActionPerformed(evt);
             }
         });
-        runingPanel.add(walkBtn);
-        walkBtn.setBounds(10, 790, 121, 60);
 
         runBtn.setText("Run");
         runBtn.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -83,8 +71,6 @@ public class GUI extends javax.swing.JFrame {
                 runBtnActionPerformed(evt);
             }
         });
-        runingPanel.add(runBtn);
-        runBtn.setBounds(150, 790, 121, 60);
 
         sprintBtn1.setText("Sprint");
         sprintBtn1.setPreferredSize(new java.awt.Dimension(60, 35));
@@ -93,18 +79,50 @@ public class GUI extends javax.swing.JFrame {
                 sprintBtn1ActionPerformed(evt);
             }
         });
-        runingPanel.add(sprintBtn1);
-        sprintBtn1.setBounds(290, 790, 121, 60);
+
+        runningLabel.setBackground(new java.awt.Color(51, 51, 51));
+        runningLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        runningLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        runningLabel.setMaximumSize(new java.awt.Dimension(1076, 1000));
+        runningLabel.setMinimumSize(new java.awt.Dimension(1076, 1000));
+        runningLabel.setOpaque(true);
+
+        javax.swing.GroupLayout runingPanelLayout = new javax.swing.GroupLayout(runingPanel);
+        runingPanel.setLayout(runingPanelLayout);
+        runingPanelLayout.setHorizontalGroup(
+            runingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(runingPanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(walkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(runBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(sprintBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(runningLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        runingPanelLayout.setVerticalGroup(
+            runingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(runingPanelLayout.createSequentialGroup()
+                .addComponent(runningLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(runingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(walkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(runBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sprintBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(runingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+            .addComponent(runingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(runingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(runingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
